@@ -33,7 +33,6 @@ void render_camera(cgtub::SimpleRenderer& renderer, glm::mat4 const& view_matrix
     {
         point = inv_view_matrix * glm::vec4(0.25f * point, 1.f);
     }
-
     renderer.render_lines(lines, colors);
 
     bool is_identity = projection_matrix == glm::mat4(1);
@@ -84,7 +83,7 @@ void render_camera(cgtub::SimpleRenderer& renderer, glm::mat4 const& view_matrix
                                              (projection_matrix[2][3] != 0);
         if (is_perspective_transformation)
         {
-            glm::vec3 cameraLocation    = inv_view_matrix * glm::vec4(0, 0, 0, 1);
+            glm::vec3 cameraLocation      = inv_view_matrix * glm::vec4(0, 0, 0, 1);
             glm::vec3 near_line_points[8] = {
                 cameraLocation,
                 frustum[0],
